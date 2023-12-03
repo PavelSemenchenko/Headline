@@ -8,8 +8,39 @@
 import SwiftUI
 
 struct SplashScreen: View {
+    @State private var logoOpacity: Double = 0.0
+    @EnvironmentObject private var navigationVM: NavigationRouter
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {/*
+            Image("AppIcon")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200, height: 200)
+                .opacity(logoOpacity)
+                        */
+            Text("Headline")
+                //.font(.custom("NinaCTT", size: 24))
+                .font(.title)
+                .foregroundColor(.white)
+                .multilineTextAlignment(.center)
+                .opacity(logoOpacity)
+                .padding(10)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.red)
+        .edgesIgnoringSafeArea(.all)
+        .onAppear {
+            withAnimation(.easeInOut(duration: 1.5)) {
+                            logoOpacity = 1.0
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                //SignInVM.isAuthenticated ?
+                navigationVM.pushScreen(route: .tabbar)
+                //: navigationVM.popUntilSignInScreen()
+            }
+        }
     }
 }
 
