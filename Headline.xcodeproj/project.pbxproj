@@ -45,6 +45,8 @@
 		2A8AD0D22B1D13EA00002684 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8AD0D12B1D13EA00002684 /* SplashScreen.swift */; };
 		2A8AD0D42B1D140B00002684 /* SignInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8AD0D32B1D140B00002684 /* SignInScreen.swift */; };
 		2A8AD0D62B1D142400002684 /* SignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8AD0D52B1D142400002684 /* SignUpScreen.swift */; };
+		2A8AD0D92B1D1F6400002684 /* EmailTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8AD0D82B1D1F6400002684 /* EmailTextField.swift */; };
+		2A8AD0DB2B1D207900002684 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8AD0DA2B1D207900002684 /* PasswordTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		2A8AD0D12B1D13EA00002684 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		2A8AD0D32B1D140B00002684 /* SignInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInScreen.swift; sourceTree = "<group>"; };
 		2A8AD0D52B1D142400002684 /* SignUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreen.swift; sourceTree = "<group>"; };
+		2A8AD0D82B1D1F6400002684 /* EmailTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTextField.swift; sourceTree = "<group>"; };
+		2A8AD0DA2B1D207900002684 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,7 @@
 				2A8AD0862B1D09E000002684 /* TabBar.swift */,
 				2A8AD0D12B1D13EA00002684 /* SplashScreen.swift */,
 				2A8AD0D52B1D142400002684 /* SignUpScreen.swift */,
+				2A8AD0D72B1D1F4200002684 /* Elements */,
 				2A8AD0D32B1D140B00002684 /* SignInScreen.swift */,
 				2A8AD0CF2B1D13D100002684 /* ProfileScreen.swift */,
 				2A8AD0CB2B1D0FA100002684 /* HomeScreen.swift */,
@@ -140,6 +145,15 @@
 				2A8AD08B2B1D09E100002684 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2A8AD0D72B1D1F4200002684 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				2A8AD0D82B1D1F6400002684 /* EmailTextField.swift */,
+				2A8AD0DA2B1D207900002684 /* PasswordTextField.swift */,
+			);
+			path = Elements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,11 +259,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A8AD0DB2B1D207900002684 /* PasswordTextField.swift in Sources */,
 				2A8AD0D22B1D13EA00002684 /* SplashScreen.swift in Sources */,
 				2A8AD0CC2B1D0FA100002684 /* HomeScreen.swift in Sources */,
 				2A8AD0872B1D09E000002684 /* TabBar.swift in Sources */,
 				2A8AD0D62B1D142400002684 /* SignUpScreen.swift in Sources */,
 				2A8AD0D42B1D140B00002684 /* SignInScreen.swift in Sources */,
+				2A8AD0D92B1D1F6400002684 /* EmailTextField.swift in Sources */,
 				2A8AD0852B1D09E000002684 /* HeadlineApp.swift in Sources */,
 				2A8AD0932B1D0C1600002684 /* NavigationRouter.swift in Sources */,
 				2A8AD0D02B1D13D100002684 /* ProfileScreen.swift in Sources */,

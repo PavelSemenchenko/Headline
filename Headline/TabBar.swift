@@ -10,6 +10,7 @@ import SwiftUI
 enum TabBarId: Int, Hashable {
     case home = 0
     case profile = 1
+    case signup = 2
 }
 
 struct TabBar: View {
@@ -24,6 +25,9 @@ struct TabBar: View {
             ProfileScreen()
                 .tabItem { Text("Profile") }
                 .tag(1)
+            SignUpScreen()
+                .tabItem { Text("Sign Up") }
+                .tag(2)
         }.navigationBarBackButtonHidden(true)
     }
 }
