@@ -17,6 +17,9 @@ struct SignUpScreen: View {
             Text("Sign up")
             EmailTextField(valid: true, placeholder: "enter Email", text: $email)
             PasswordTextField(valid: true, placeholder: "enter password", text: $password)
+            Button(action: {}, label: {
+                Text("Sign Up")
+            })
         }
     }
 }

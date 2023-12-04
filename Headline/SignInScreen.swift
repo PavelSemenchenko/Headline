@@ -8,8 +8,20 @@
 import SwiftUI
 
 struct SignInScreen: View {
+    @EnvironmentObject private var navigarionVM: NavigationRouter
+    @State private var email = ""
+    @State private var password = ""
+    
     var body: some View {
-        Text("sign in")
+        VStack {
+            Text("Sign in")
+            EmailTextField(valid: true, placeholder: "enter email", text: $email)
+            PasswordTextField(valid: true, placeholder: "enter password", text: $password)
+            Button(action: {}, label: {
+                Text("Sign In")
+            })
+            
+        }
     }
 }
 

@@ -46,4 +46,5 @@ struct SplashScreen: View {
 
 #Preview {
     SplashScreen()
+        .environmentObject(NavigationRouter())
 }
