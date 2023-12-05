@@ -17,11 +17,12 @@ struct ProfileScreen: View {
         ScrollView{
             HStack {
                 Text("user nick name")
+                Spacer()
                 Button(action: {}, label: {
-                    Text("add smth")
+                    Text("add")
                 })
                 Button(action: {}, label: {
-                    Text("Setup smth")
+                    Text("Setup")
                 })
             }
             Spacer()
@@ -34,7 +35,7 @@ struct ProfileScreen: View {
                                 print("Current User ID: \(userRepository.name)")
                             }
                         }
-                    }
+                    }.padding()
                 Text("description")
             }
             Button(action: {}, label: {

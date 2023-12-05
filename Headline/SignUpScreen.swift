@@ -37,7 +37,7 @@ struct SignUpScreen: View {
                         var service = UserRepository()
                         service.navigationVM = navigationVM
                         await signVM.signUp()
-                        await userRepository.addUserName(name: userName)
+                        await userRepository.addUserName(name: signVM.userName)
                         navigationVM.pushHome()
                         print("00000-00000")
                     } catch {
