@@ -18,7 +18,11 @@ struct SignInScreen: View {
             Text("Sign in")
                 .font(.title)
                 .fontWeight(.bold)
-            EmailTextField(valid: signVM.isEmailCorrect, 
+            
+            Text(signVM.errorMessage ?? "")
+                .foregroundColor(.red)
+
+            EmailTextField(valid: signVM.isEmailCorrect,
                            placeholder: "enter email",
                            text: $signVM.email)
             PasswordTextField(valid: signVM.isPasswordCorrect, 
@@ -27,8 +31,8 @@ struct SignInScreen: View {
             HStack{
                 SignButton(text: "Sign in", enabled: signVM.canLogin, busy: signVM.busy) {
                     Task {
-                        await signVM.signIn()
-                        navigationVM.pushScreen(route: .tabbar)
+                        await signVM.signIn(navigationVM: NavigationRouter())
+                        //navigationVM.pushScreen(route: .tabbar)
                     }
                 }.padding(20)
                 SignButton(text: "Sign up", enabled: signVM.canLogin, busy: signVM.busy) {

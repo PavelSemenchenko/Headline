@@ -10,11 +10,14 @@ import FirebaseAuth
 import FirebaseAuthCombineSwift
 
 class SignVM: ObservableObject {
+    fileprivate(set) var navigationVM: NavigationRouter!
+    
     @Published var userName: String = ""
     @Published var email: String = "test@test.com"
     @Published var password: String = "123456"
     @Published var busy: Bool = false
-    
+    @Published var errorMessage: String?
+        
     var isUserNameCorrect: Bool {
         get {
             userName.count >= 2
@@ -30,23 +33,29 @@ class SignVM: ObservableObject {
         }
     }
     var canLogin: Bool {
-        return isEmailCorrect && isPasswordCorrect 
+        return isEmailCorrect && isPasswordCorrect
         //&& isUserNameCorrect
     }
-    //class 
+    //class
     var isAuthenticated: Bool {
         print(Auth.auth().currentUser?.uid)
         return Auth.auth().currentUser != nil
     }
+    @MainActor func forgotPassword(email: String) {
+        Auth.auth().sendPasswordReset(withEmail: email)
+    }
+    
     @MainActor func logOut() {
         try? Auth.auth().signOut()
     }
-    @MainActor func signIn() async {
+    @MainActor func signIn(navigationVM: NavigationRouter) async {
         busy = true
         do {
-            let result = try? await Auth.auth().signIn(withEmail: email, password: password)
+            let result = try await Auth.auth().signIn(withEmail: email, password: password)
+            navigationVM.pushScreen(route: .tabbar)
         } catch {
-            print(error)
+            errorMessage = "Ошибка входа: \(error.localizedDescription)"
+            print("\(#file) \(#function) \(error)")
         }
         busy = false
     }
@@ -55,9 +64,11 @@ class SignVM: ObservableObject {
         do {
             let result = try? await Auth.auth().createUser(withEmail: email, password: password)
         } catch {
-            
+            errorMessage = "Ошибка регистрации: \(error.localizedDescription)"
+            print("\(#file) \(#function) \(error)")
         }
         busy = false
     }
+    
     
 }
