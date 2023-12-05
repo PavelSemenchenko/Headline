@@ -38,11 +38,14 @@ struct HeadlineApp: App {
                             case .home:
                                 HomeScreen()
                             case .signIn:
-                                SignInScreen().environmentObject(userRepository)
+                                SignInScreen()
+                                    .environmentObject(userRepository)
                             case .signUp:
-                                SignUpScreen().environmentObject(userRepository)
+                                SignUpScreen()
+                                    .environmentObject(userRepository)
                             case .profile:
-                                ProfileScreen().environmentObject(userRepository)
+                                ProfileScreen()
+                                    .environmentObject(userRepository)
                             case .tabbar:
                                 TabBar()
                             }
@@ -51,7 +54,6 @@ struct HeadlineApp: App {
             }
         }.environmentObject(navigationVM)
             .environmentObject(signVM)
-            .environmentObject(userRepository)
         
     }
 }

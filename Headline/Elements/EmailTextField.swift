@@ -20,12 +20,10 @@ struct EmailTextField: View {
             .keyboardType(.emailAddress)
             .disableAutocorrection(true)
             .autocapitalization(.none)
-            .border(backgroundColor)
+            .overlay(RoundedRectangle(cornerRadius: 2)
+                .stroke(backgroundColor, lineWidth: 1))
             .textFieldStyle(.roundedBorder)
-            .background(backgroundColor)
-            .autocapitalization(.words)
             .padding(EdgeInsets(top: 8, leading: 36, bottom: 8, trailing: 36))
-            .cornerRadius(15)
     }
 }
 /*
