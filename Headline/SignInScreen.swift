@@ -12,6 +12,7 @@ struct SignInScreen: View {
     @EnvironmentObject private var signVM: SignVM
     @State private var email = ""
     @State private var password = ""
+    @State private var showError: Bool = false
     
     var body: some View {
         VStack {
@@ -19,13 +20,21 @@ struct SignInScreen: View {
                 .font(.title)
                 .fontWeight(.bold)
             
-            Text(signVM.errorMessage ?? "")
-                .foregroundColor(.red)
-
+            if signVM.showError {
+                Text(signVM.errorMessage ?? "")
+                    .foregroundColor(.red)
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                            signVM.showError = false
+                            print("111111\(signVM.showError)")
+                        }
+                    }
+            }
+            
             EmailTextField(valid: signVM.isEmailCorrect,
                            placeholder: "enter email",
                            text: $signVM.email)
-            PasswordTextField(valid: signVM.isPasswordCorrect, 
+            PasswordTextField(valid: signVM.isPasswordCorrect,
                               placeholder: "enter password",
                               text: $signVM.password)
             HStack{
@@ -40,10 +49,10 @@ struct SignInScreen: View {
                 }
             }
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(LinearGradient(gradient: Gradient(
-            colors: [.blue, .yellow, .pink]),
-            startPoint: .topTrailing, endPoint: .bottomLeading))
-        .opacity(0.9)
+            .background(LinearGradient(gradient: Gradient(
+                colors: [.blue, .yellow, .pink]),
+                                       startPoint: .topTrailing, endPoint: .bottomLeading))
+            .opacity(0.9)
     }
 }
 

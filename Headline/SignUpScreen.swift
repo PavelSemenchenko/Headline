@@ -20,6 +20,10 @@ struct SignUpScreen: View {
             Text("Sign up")
                 .font(.title)
                 .fontWeight(.bold)
+            
+            Text(signVM.errorMessage ?? "")
+                .foregroundColor(.red)
+            
             UserNameTextField(valid: signVM.isUserNameCorrect,
                           placeholder: "enter name",
                               text: $signVM.userName)
@@ -38,9 +42,9 @@ struct SignUpScreen: View {
                     do {
                         var service = UserRepository()
                         service.navigationVM = navigationVM
-                        await signVM.signUp()
+                        await signVM.signUp(navigationVM: NavigationRouter())
                         await userRepository.addUserName(name: signVM.userName)
-                        navigationVM.pushHome()
+                        //navigationVM.pushHome()
                         print("00000-00000")
                     } catch {
                         print("error with user creation")

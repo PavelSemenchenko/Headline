@@ -11,6 +11,7 @@ import FirebaseAuthCombineSwift
 
 class SignVM: ObservableObject {
     fileprivate(set) var navigationVM: NavigationRouter!
+    @Published var showError: Bool = false
     
     @Published var userName: String = ""
     @Published var email: String = "test@test.com"
@@ -55,14 +56,17 @@ class SignVM: ObservableObject {
             navigationVM.pushScreen(route: .tabbar)
         } catch {
             errorMessage = "Ошибка входа: \(error.localizedDescription)"
+            showError = true 
+            print("00000\(showError)")
             print("\(#file) \(#function) \(error)")
         }
         busy = false
     }
-    @MainActor func signUp() async {
+    @MainActor func signUp(navigationVM: NavigationRouter) async {
         busy = true
         do {
             let result = try? await Auth.auth().createUser(withEmail: email, password: password)
+            navigationVM.pushHome()
         } catch {
             errorMessage = "Ошибка регистрации: \(error.localizedDescription)"
             print("\(#file) \(#function) \(error)")
