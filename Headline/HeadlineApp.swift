@@ -31,7 +31,7 @@ struct HeadlineApp: App {
                     .environmentObject(userRepository)
             } else {
                 NavigationStack(path: $navigationVM.currentRoute) {
-                    SplashScreen()
+                    SignInScreen()
                     //TabBar()
                         .navigationDestination(for: NavigationRoute.self) { route in
                             switch route {

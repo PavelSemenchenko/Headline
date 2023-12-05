@@ -18,6 +18,8 @@ struct SignUpScreen: View {
     var body: some View {
         VStack {
             Text("Sign up")
+                .font(.title)
+                .fontWeight(.bold)
             UserNameTextField(valid: signVM.isUserNameCorrect,
                           placeholder: "enter name",
                               text: $signVM.userName)
