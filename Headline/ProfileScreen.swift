@@ -17,6 +17,7 @@ struct ProfileScreen: View {
         ScrollView{
             HStack {
                 Text("user nick name")
+                    .padding()
                 Spacer()
                 Button(action: {}, label: {
                     Text("add")
@@ -28,7 +29,7 @@ struct ProfileScreen: View {
                     }
                 }, label: {
                     Text("log out")
-                })
+                }).padding()
             }
             Spacer()
             VStack {
@@ -66,15 +67,23 @@ struct ProfileScreen: View {
                     Text("name 2")
                 }
             }
-            /*
-            Grid {
-                
-            }*/
+            LazyVGrid(columns: Array(repeating: GridItem(), count: 3), spacing: 10) {
+                ForEach(0..<40) { index in
+                    VStack {
+                        Image(systemName: "house")
+                        Text("Item \(index)")
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                }
+            }
+            .padding()
             
         }
     }
 }
-/*
+
 #Preview {
-    ProfileScreen()
-}*/
+    ProfileScreen().environmentObject(UserRepository())
+}
