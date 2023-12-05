@@ -8,18 +8,27 @@
 import SwiftUI
 
 struct SignInScreen: View {
-    @EnvironmentObject private var navigarionVM: NavigationRouter
+    @EnvironmentObject private var navigationVM: NavigationRouter
+    @EnvironmentObject private var signVM: SignVM
     @State private var email = ""
     @State private var password = ""
     
     var body: some View {
         VStack {
             Text("Sign in")
-            EmailTextField(valid: true, placeholder: "enter email", text: $email)
-            PasswordTextField(valid: true, placeholder: "enter password", text: $password)
-            Button(action: {}, label: {
-                Text("Sign In")
-            })
+            EmailTextField(valid: signVM.isEmailCorrect, 
+                           placeholder: "enter email",
+                           text: $signVM.email)
+            PasswordTextField(valid: signVM.isPasswordCorrect, 
+                              placeholder: "enter password",
+                              text: $signVM.password)
+            
+            SignButton(text: "Sign in", enabled: signVM.canLogin, busy: signVM.busy) {
+                Task {
+                    await signVM.signIn()
+                    navigationVM.pushScreen(route: .tabbar)
+                }
+            }
             
         }
     }
@@ -27,4 +36,6 @@ struct SignInScreen: View {
 
 #Preview {
     SignInScreen()
+        .environmentObject(NavigationRouter())
+        .environmentObject(SignVM())
 }

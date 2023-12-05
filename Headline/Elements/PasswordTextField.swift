@@ -17,11 +17,11 @@ struct PasswordTextField: View {
     
     var body: some View {
         TextField(placeholder, text: text)
-        //.border(backgroundColor)
-        //.cornerRadius(5)
-        //.textFieldStyle(.roundedBorder)
+        .border(backgroundColor)
+        .cornerRadius(5)
+        .textFieldStyle(.roundedBorder)
             .textFieldStyle(RoundedBorderTextFieldStyle())
-        //.background(backgroundColor)
+        .background(backgroundColor)
             .autocapitalization(.words)
             .padding(EdgeInsets(top: 8, leading: 36, bottom: 8, trailing: 36))
     }

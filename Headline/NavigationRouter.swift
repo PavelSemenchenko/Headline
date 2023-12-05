@@ -8,7 +8,7 @@
 import SwiftUI
 
 enum NavigationRoute: Hashable {
-    case splash
+    //case splash
     case tabbar
     case signIn
     case signUp

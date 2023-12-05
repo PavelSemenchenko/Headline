@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A601EF22B1F0118006AB528 /* SignVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A601EF12B1F0118006AB528 /* SignVM.swift */; };
+		2A601EF42B1F0676006AB528 /* SignButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A601EF32B1F0676006AB528 /* SignButton.swift */; };
+		2A601EF62B1F15EE006AB528 /* UserNameTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A601EF52B1F15EE006AB528 /* UserNameTextField.swift */; };
+		2A601EF92B1F190A006AB528 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A601EF82B1F190A006AB528 /* UserEntity.swift */; };
+		2A601EFB2B1F19E7006AB528 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A601EFA2B1F19E7006AB528 /* UserRepository.swift */; };
 		2A8AD0852B1D09E000002684 /* HeadlineApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8AD0842B1D09E000002684 /* HeadlineApp.swift */; };
 		2A8AD0872B1D09E000002684 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8AD0862B1D09E000002684 /* TabBar.swift */; };
 		2A8AD0892B1D09E100002684 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A8AD0882B1D09E100002684 /* Assets.xcassets */; };
@@ -50,6 +55,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A601EF12B1F0118006AB528 /* SignVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignVM.swift; sourceTree = "<group>"; };
+		2A601EF32B1F0676006AB528 /* SignButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignButton.swift; sourceTree = "<group>"; };
+		2A601EF52B1F15EE006AB528 /* UserNameTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameTextField.swift; sourceTree = "<group>"; };
+		2A601EF82B1F190A006AB528 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
+		2A601EFA2B1F19E7006AB528 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		2A8AD0812B1D09E000002684 /* Headline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Headline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A8AD0842B1D09E000002684 /* HeadlineApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineApp.swift; sourceTree = "<group>"; };
 		2A8AD0862B1D09E000002684 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
@@ -104,6 +114,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A601EF72B1F18D7006AB528 /* UserDataBase */ = {
+			isa = PBXGroup;
+			children = (
+				2A601EF82B1F190A006AB528 /* UserEntity.swift */,
+				2A601EFA2B1F19E7006AB528 /* UserRepository.swift */,
+			);
+			path = UserDataBase;
+			sourceTree = "<group>";
+		};
 		2A8AD0782B1D09E000002684 = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +149,8 @@
 				2A8AD0D72B1D1F4200002684 /* Elements */,
 				2A8AD0D52B1D142400002684 /* SignUpScreen.swift */,
 				2A8AD0D32B1D140B00002684 /* SignInScreen.swift */,
+				2A601EF12B1F0118006AB528 /* SignVM.swift */,
+				2A601EF72B1F18D7006AB528 /* UserDataBase */,
 				2A8AD0CF2B1D13D100002684 /* ProfileScreen.swift */,
 				2A8AD0CB2B1D0FA100002684 /* HomeScreen.swift */,
 				2A8AD0CD2B1D10D700002684 /* GoogleService-Info.plist */,
@@ -150,8 +171,10 @@
 		2A8AD0D72B1D1F4200002684 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
+				2A601EF52B1F15EE006AB528 /* UserNameTextField.swift */,
 				2A8AD0D82B1D1F6400002684 /* EmailTextField.swift */,
 				2A8AD0DA2B1D207900002684 /* PasswordTextField.swift */,
+				2A601EF32B1F0676006AB528 /* SignButton.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -260,13 +283,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A8AD0DB2B1D207900002684 /* PasswordTextField.swift in Sources */,
+				2A601EF62B1F15EE006AB528 /* UserNameTextField.swift in Sources */,
 				2A8AD0D22B1D13EA00002684 /* SplashScreen.swift in Sources */,
 				2A8AD0CC2B1D0FA100002684 /* HomeScreen.swift in Sources */,
 				2A8AD0872B1D09E000002684 /* TabBar.swift in Sources */,
 				2A8AD0D62B1D142400002684 /* SignUpScreen.swift in Sources */,
 				2A8AD0D42B1D140B00002684 /* SignInScreen.swift in Sources */,
 				2A8AD0D92B1D1F6400002684 /* EmailTextField.swift in Sources */,
+				2A601EFB2B1F19E7006AB528 /* UserRepository.swift in Sources */,
 				2A8AD0852B1D09E000002684 /* HeadlineApp.swift in Sources */,
+				2A601EF42B1F0676006AB528 /* SignButton.swift in Sources */,
+				2A601EF22B1F0118006AB528 /* SignVM.swift in Sources */,
+				2A601EF92B1F190A006AB528 /* UserEntity.swift in Sources */,
 				2A8AD0932B1D0C1600002684 /* NavigationRouter.swift in Sources */,
 				2A8AD0D02B1D13D100002684 /* ProfileScreen.swift in Sources */,
 			);

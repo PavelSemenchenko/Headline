@@ -18,31 +18,38 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct HeadlineApp: App {
+        
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @ObservedObject var navigationVM = NavigationRouter()
+    @ObservedObject var signVM = SignVM()
+    @ObservedObject var userRepository = UserRepository()
     
     var body: some Scene {
         WindowGroup {
-            NavigationStack(path: $navigationVM.currentRoute) {
-                SplashScreen()
-                //TabBar()
-                    .navigationDestination(for: NavigationRoute.self) { route in
-                        switch route {
-                        case .home:
-                            HomeScreen()
-                        case .splash:
-                            SplashScreen()
-                        case .signIn:
-                            SignInScreen()
-                        case .signUp:
-                            SignUpScreen()
-                        case .profile:
-                            ProfileScreen()
-                        case .tabbar:
-                            TabBar()
+            if signVM.isAuthenticated {
+                TabBar(currentTab: .home)
+            } else {
+                NavigationStack(path: $navigationVM.currentRoute) {
+                    SignUpScreen()
+                    //TabBar()
+                        .navigationDestination(for: NavigationRoute.self) { route in
+                            switch route {
+                            case .home:
+                                HomeScreen()
+                            case .signIn:
+                                SignInScreen()
+                            case .signUp:
+                                SignUpScreen()
+                            case .profile:
+                                ProfileScreen()
+                            case .tabbar:
+                                TabBar()
+                            }
                         }
-                    }
-            }.environmentObject(navigationVM)
-        }
+                }
+            }
+        }.environmentObject(navigationVM)
+            .environmentObject(signVM)
+            .environmentObject(userRepository)
     }
 }

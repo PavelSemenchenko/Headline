@@ -1,13 +1,13 @@
 //
-//  EmailTextField.swift
+//  NameTextField.swift
 //  Headline
 //
-//  Created by Pavel Semenchenko on 03.12.2023.
+//  Created by Pavel Semenchenko on 05.12.2023.
 //
 
 import SwiftUI
 
-struct EmailTextField: View {
+struct UserNameTextField: View {
     var valid: Bool
     var placeholder: String
     var text: Binding<String>
@@ -27,6 +27,6 @@ struct EmailTextField: View {
     }
 }
 /*
- #Preview {
- EmailTextField()
- }*/
+#Preview {
+    NameTextField()
+}*/
