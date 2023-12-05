@@ -11,8 +11,8 @@ import FirebaseAuthCombineSwift
 
 class SignVM: ObservableObject {
     @Published var userName: String = ""
-    @Published var email: String = ""
-    @Published var password: String = ""
+    @Published var email: String = "test@test.com"
+    @Published var password: String = "123456"
     @Published var busy: Bool = false
     
     var isUserNameCorrect: Bool {
@@ -30,7 +30,8 @@ class SignVM: ObservableObject {
         }
     }
     var canLogin: Bool {
-        return isEmailCorrect && isPasswordCorrect
+        return isEmailCorrect && isPasswordCorrect 
+        //&& isUserNameCorrect
     }
     //class 
     var isAuthenticated: Bool {

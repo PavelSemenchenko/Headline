@@ -20,16 +20,15 @@ struct EmailTextField: View {
             .keyboardType(.emailAddress)
             .disableAutocorrection(true)
             .autocapitalization(.none)
-        .border(backgroundColor)
-        .cornerRadius(5)
-        .textFieldStyle(.roundedBorder)
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-        .background(backgroundColor)
+            .border(backgroundColor)
+            .textFieldStyle(.roundedBorder)
+            .background(backgroundColor)
             .autocapitalization(.words)
             .padding(EdgeInsets(top: 8, leading: 36, bottom: 8, trailing: 36))
+            .cornerRadius(15)
     }
 }
 /*
  #Preview {
- EmailTextField()
+ EmailTextField(valid: true, placeholder: "enter text", text: $emailText)
  }*/

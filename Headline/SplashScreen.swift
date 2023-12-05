@@ -37,7 +37,7 @@ struct SplashScreen: View {
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 //SignInVM.isAuthenticated ?
-                navigationVM.pushScreen(route: .tabbar)
+                navigationVM.pushScreen(route: .signIn)
                 //: navigationVM.popUntilSignInScreen()
             }
         }

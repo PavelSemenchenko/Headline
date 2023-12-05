@@ -47,10 +47,11 @@ struct HeadlineApp: App {
                                 TabBar()
                             }
                         }
-                }
+                }.navigationBarBackButtonHidden(true)
             }
         }.environmentObject(navigationVM)
             .environmentObject(signVM)
             .environmentObject(userRepository)
+        
     }
 }

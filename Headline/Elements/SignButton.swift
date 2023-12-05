@@ -12,9 +12,11 @@ fileprivate struct SignButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding()
+            .frame(width: 120, height: 36)
             .background(color)
             .foregroundColor(.white)
             .clipShape(Capsule())
+            
     }
 }
 
@@ -37,7 +39,7 @@ struct SignButton: View {
             .disabled(!enabled || busy)
     }
 }
-/*
+
 #Preview {
-    SignButton()
-}*/
+    SignButton(text: "Sign in", enabled: true, busy: false, action: {} )
+}

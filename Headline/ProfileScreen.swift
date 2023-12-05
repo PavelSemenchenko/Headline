@@ -20,9 +20,14 @@ struct ProfileScreen: View {
                 Spacer()
                 Button(action: {}, label: {
                     Text("add")
-                })
-                Button(action: {}, label: {
-                    Text("Setup")
+                }).padding()
+                Button(action: {
+                    Task {
+                        signVM.logOut()
+                        navigationVM.pushUntilSignIn()
+                    }
+                }, label: {
+                    Text("log out")
                 })
             }
             Spacer()

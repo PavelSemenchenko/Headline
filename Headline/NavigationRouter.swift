@@ -31,5 +31,9 @@ class NavigationRouter: ObservableObject {
     func popScreen() {
         currentRoute.removeLast()
     }
+    func pushUntilSignIn() {
+        currentRoute.removeLast(currentRoute.count)
+        pushScreen(route: .signIn)
+    }
 }
 
