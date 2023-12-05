@@ -17,6 +17,9 @@ struct EmailTextField: View {
     
     var body: some View {
         TextField(placeholder, text: text)
+            .keyboardType(.emailAddress)
+            .disableAutocorrection(true)
+            .autocapitalization(.none)
         .border(backgroundColor)
         .cornerRadius(5)
         .textFieldStyle(.roundedBorder)

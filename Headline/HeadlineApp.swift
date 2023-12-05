@@ -28,20 +28,21 @@ struct HeadlineApp: App {
         WindowGroup {
             if signVM.isAuthenticated {
                 TabBar(currentTab: .home)
+                    .environmentObject(userRepository)
             } else {
                 NavigationStack(path: $navigationVM.currentRoute) {
-                    SignUpScreen()
+                    SplashScreen()
                     //TabBar()
                         .navigationDestination(for: NavigationRoute.self) { route in
                             switch route {
                             case .home:
                                 HomeScreen()
                             case .signIn:
-                                SignInScreen()
+                                SignInScreen().environmentObject(userRepository)
                             case .signUp:
-                                SignUpScreen()
+                                SignUpScreen().environmentObject(userRepository)
                             case .profile:
-                                ProfileScreen()
+                                ProfileScreen().environmentObject(userRepository)
                             case .tabbar:
                                 TabBar()
                             }

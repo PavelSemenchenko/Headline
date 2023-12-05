@@ -21,7 +21,7 @@ class UserRepository: ObservableObject {
             let db = Firestore.firestore()
             let userRef = db.collection("profiles").document(currentUID)
             do {
-                try await userRef.setData(["name" : name]) { error in
+                try await userRef.setData(["name" : name, "userId": currentUID]) { error in
                     if let error = error {
                         print("Error adding username to Firestore: \(error.localizedDescription)")
                     } else {

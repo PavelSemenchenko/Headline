@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct ProfileScreen: View {
+    @EnvironmentObject private var navigationVM: NavigationRouter
+    @EnvironmentObject private var signVM: SignVM
+    @EnvironmentObject private var userRepository: UserRepository
+    @State var name: String?
+    
     var body: some View {
         ScrollView{
             HStack {
@@ -19,13 +24,23 @@ struct ProfileScreen: View {
                     Text("Setup smth")
                 })
             }
+            Spacer()
             VStack {
-                Text("user name")
+                Text(userRepository.name)
+                    .onAppear {
+                        if userRepository.name == "..." {
+                            Task {
+                                await userRepository.getUserInfo()
+                                print("Current User ID: \(userRepository.name)")
+                            }
+                        }
+                    }
                 Text("description")
             }
             Button(action: {}, label: {
                 Text("info")
             })
+            Spacer()
             HStack {
                 Button(action: {}, label: {
                     Text("edit profile")
@@ -34,6 +49,7 @@ struct ProfileScreen: View {
                     Text("share profile")
                 })
             }
+            Spacer(minLength: 100)
             HStack{
                 VStack{
                     Image(systemName: "house")
@@ -52,7 +68,7 @@ struct ProfileScreen: View {
         }
     }
 }
-
+/*
 #Preview {
     ProfileScreen()
-}
+}*/
