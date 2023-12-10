@@ -12,11 +12,12 @@ struct ProfileScreen: View {
     @EnvironmentObject private var signVM: SignVM
     @EnvironmentObject private var userRepository: UserRepository
     @State var name: String?
+    @State var nickName: String?
     
     var body: some View {
         ScrollView{
             HStack {
-                Text("user nick name")
+                Text(userRepository.nickName)
                     .padding()
                 Spacer()
                 Button(action: {}, label: {
@@ -30,6 +31,10 @@ struct ProfileScreen: View {
                 }, label: {
                     Text("log out")
                 }).padding()
+            }.onAppear {
+                Task {
+                    await userRepository.getUserInfo()
+                }
             }
             Spacer()
             VStack {
@@ -83,7 +88,7 @@ struct ProfileScreen: View {
         }
     }
 }
-
+/*
 #Preview {
     ProfileScreen().environmentObject(UserRepository())
-}
+}*/

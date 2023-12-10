@@ -14,6 +14,7 @@ import FirebaseFirestoreCombineSwift
 class UserRepository: ObservableObject {
     var navigationVM: NavigationRouter!
     @Published var name = "..."
+    @Published var nickName = "user"
     
     @MainActor func addUserName(name:String) async {
         
@@ -60,6 +61,7 @@ class UserRepository: ObservableObject {
                 if let contact = try? document.data(as: UserEntity.self) {
                     // Обновляем значение @Published var name
                     self.name = contact.name ?? "John Doe"
+                    self.nickName = contact.nickName ?? "user"
                     self.objectWillChange.send()
                 } else {
                     print("Failed to decode Contact from document data")

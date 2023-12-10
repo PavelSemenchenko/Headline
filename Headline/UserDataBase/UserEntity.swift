@@ -7,10 +7,12 @@
 
 import Foundation
 import SwiftUI
+import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 struct UserEntity: Codable, Hashable ,Identifiable {
     @DocumentID var id: String?
     var name: String
-    //let lastName: String
+    var nickName: String
+    fileprivate(set) var image: String = ""
 }
