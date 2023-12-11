@@ -22,7 +22,7 @@ class UserRepository: ObservableObject {
             let db = Firestore.firestore()
             let userRef = db.collection("profiles").document(currentUID)
             do {
-                try await userRef.setData(["name" : name, "userId": currentUID]) { error in
+                try await userRef.setData(["name" : name,"nickName":nickName , "userId": currentUID]) { error in
                     if let error = error {
                         print("Error adding username to Firestore: \(error.localizedDescription)")
                     } else {
@@ -60,8 +60,8 @@ class UserRepository: ObservableObject {
                 // Преобразуем данные документа в объект UserEntity
                 if let contact = try? document.data(as: UserEntity.self) {
                     // Обновляем значение @Published var name
-                    self.name = contact.name ?? "John Doe"
-                    self.nickName = contact.nickName ?? "user"
+                    self.name = contact.name //?? "John Doe"
+                    self.nickName = contact.nickName
                     self.objectWillChange.send()
                 } else {
                     print("Failed to decode Contact from document data")

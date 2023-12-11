@@ -14,5 +14,5 @@ struct UserEntity: Codable, Hashable ,Identifiable {
     @DocumentID var id: String?
     var name: String
     var nickName: String
-    fileprivate(set) var image: String = ""
+    //fileprivate(set) var image: String = ""
 }
