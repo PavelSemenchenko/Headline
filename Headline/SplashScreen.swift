@@ -12,7 +12,9 @@ struct SplashScreen: View {
     @EnvironmentObject private var navigationVM: NavigationRouter
     
     var body: some View {
-        VStack {/*
+        ZStack {
+            LinearGradient(colors: [.blue, .black], startPoint: .topTrailing, endPoint: .bottomLeading)
+            /*
             Image("AppIcon")
                 .resizable()
                 .scaledToFit()
@@ -20,15 +22,16 @@ struct SplashScreen: View {
                 .opacity(logoOpacity)
                         */
             Text("Headline")
+                .font(.largeTitle)
                 //.font(.custom("NinaCTT", size: 24))
-                .font(.title)
+                .fontWeight(.bold)
                 .foregroundColor(.white)
                 .multilineTextAlignment(.center)
                 .opacity(logoOpacity)
-                .padding(10)
+                
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.red)
+        //.background(Color.red)
         .edgesIgnoringSafeArea(.all)
         .onAppear {
             withAnimation(.easeInOut(duration: 1.5)) {

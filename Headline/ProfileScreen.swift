@@ -14,81 +14,119 @@ struct ProfileScreen: View {
     @State var name: String?
     @State var nickName: String?
     
+    @State private var isGetSomething = false
+    @State private var animatingCircle = false
+    @State private var animatingButton = false
+    
     var body: some View {
-        ScrollView{
-            HStack {
-                Text(userRepository.nickName)
-                    .padding()
-                Spacer()
-                Button(action: {}, label: {
-                    Text("add")
-                }).padding()
-                Button(action: {
-                    Task {
-                        signVM.logOut()
-                        navigationVM.pushUntilSignIn()
-                    }
-                }, label: {
-                    Text("log out")
-                }).padding()
-            }.onAppear {
-                Task {
-                    await userRepository.getUserInfo()
-                }
-            }
-            Spacer()
-            VStack {
-                Text(userRepository.name)
-                    .onAppear {
-                        if userRepository.name == "..." {
-                            Task {
-                                await userRepository.getUserInfo()
-                                print("Current User ID: \(userRepository.name)")
-                            }
+        ScrollView {
+                HStack {
+                                        
+                    Text(userRepository.nickName)
+                        .padding()
+                    Spacer()
+                    Button(action: {}, label: {
+                        Text("add")
+                    }).padding()
+                    Button(action: {
+                        Task {
+                            signVM.logOut()
+                            navigationVM.pushUntilSignIn()
                         }
-                    }.padding()
-                Text("description")
-            }
-            Button(action: {}, label: {
-                Text("info")
-            })
-            Spacer()
-            HStack {
-                Button(action: {}, label: {
-                    Text("edit profile")
-                })
-                Button(action: {}, label: {
-                    Text("share profile")
-                })
-            }
-            Spacer(minLength: 100)
-            HStack{
-                VStack{
-                    Image(systemName: "house")
-                    Text("name")
-                }
-                VStack{
-                    Image(systemName: "globe")
-                    Text("name 2")
-                }
-            }
-            LazyVGrid(columns: Array(repeating: GridItem(), count: 3), spacing: 10) {
-                ForEach(0..<40) { index in
-                    VStack {
-                        Image(systemName: "house")
-                        Text("Item \(index)")
+                    }, label: {
+                        Text("log out")
+                    }).padding()
+                }.onAppear {
+                    Task {
+                        await userRepository.getUserInfo()
                     }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(Color.blue)
-                    .foregroundColor(.white)
                 }
-            }
-            .padding()
+                Spacer()
+                VStack {
+                    Text(userRepository.name)
+                        .onAppear {
+                            if userRepository.name == "..." {
+                                Task {
+                                    await userRepository.getUserInfo()
+                                    print("Current User ID: \(userRepository.name)")
+                                }
+                            }
+                        }.padding()
+                    Text("description")
+                }
+                Button(action: {}, label: {
+                    Text("info")
+                })
+                Spacer()
+                HStack {
+                    Button(action: {}, label: {
+                        Text("edit profile")
+                    })
+                    Button(action: {}, label: {
+                        Text("share profile")
+                    })
+                }
+                Spacer(minLength: 100)
+                HStack{
+                    VStack{
+                        Image(systemName: "house")
+                        Text("name")
+                    }
+                    VStack{
+                        Image(systemName: "globe")
+                        Text("name 2")
+                    }
+                }
+            Spacer()
             
-        }
+            HStack {
+                Text("Get something").bold()
+                    .opacity(isGetSomething ? 1.0 : 0.5)
+                Spacer()
+                Image(systemName: isGetSomething ? "checkmark.circle.fill" : "circle")
+                    .font(.system(size: 24))
+                    .scaleEffect(isGetSomething ? 1.25 : 1.0)
+                    .foregroundColor(isGetSomething ? .green : .black)
+                    .padding()
+                    .onTapGesture {
+                        withAnimation(.easeInOut(duration: 1.0)) {
+                            isGetSomething.toggle()
+                        }
+                    }
+            }.padding()
+                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+            //circle with spring
+            Circle()
+                .frame(width: 100,height: 100)
+                .foregroundStyle(.linearGradient(colors: [.cyan,.green], startPoint: .topTrailing, endPoint: .bottomLeading))
+                .offset(x: animatingCircle ? 30 : 0, y:animatingCircle ? -100 : 0 )
+                .scaleEffect(animatingCircle ? 2.0 : 1.0)
+                .onTapGesture {
+                    withAnimation(.spring(response: 0.9, dampingFraction: 0.9, blendDuration: 0)) {
+                        animatingCircle.toggle()
+                    }
+                }
+            //button example
+            Button(action: {
+                withAnimation(.easeInOut(duration: 1).repeatCount(2)) {
+                    animatingButton.toggle()
+                }
+            }, label: {
+                Text("Animate")
+                    .bold()
+                    .frame(width: 200,height: 50)
+                    .foregroundColor(.indigo)
+                    .background(LinearGradient(colors: [.mint, .white], startPoint: .bottomLeading, endPoint: .topTrailing))
+                    .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+                    .shadow(radius: 3)
+                    .opacity(animatingButton ? 1.0 : 0.7)
+                    .scaleEffect(animatingButton ? 1.5 : 1.0)
+            })
+            
+        }//.edgesIgnoringSafeArea(.all)
     }
 }
-/*
+
 #Preview {
     ProfileScreen().environmentObject(UserRepository())
-}*/
+}
