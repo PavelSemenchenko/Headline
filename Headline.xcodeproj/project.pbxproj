@@ -52,6 +52,8 @@
 		2A8AD0D62B1D142400002684 /* SignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8AD0D52B1D142400002684 /* SignUpScreen.swift */; };
 		2A8AD0D92B1D1F6400002684 /* EmailTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8AD0D82B1D1F6400002684 /* EmailTextField.swift */; };
 		2A8AD0DB2B1D207900002684 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8AD0DA2B1D207900002684 /* PasswordTextField.swift */; };
+		2AE122402B2C88A700E3012E /* ForgotPasswordScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE1223F2B2C88A700E3012E /* ForgotPasswordScreen.swift */; };
+		2AE122442B2CA87F00E3012E /* ProfileEditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE122432B2CA87F00E3012E /* ProfileEditScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +76,8 @@
 		2A8AD0D52B1D142400002684 /* SignUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreen.swift; sourceTree = "<group>"; };
 		2A8AD0D82B1D1F6400002684 /* EmailTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTextField.swift; sourceTree = "<group>"; };
 		2A8AD0DA2B1D207900002684 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
+		2AE1223F2B2C88A700E3012E /* ForgotPasswordScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordScreen.swift; sourceTree = "<group>"; };
+		2AE122432B2CA87F00E3012E /* ProfileEditScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,9 +153,11 @@
 				2A8AD0D72B1D1F4200002684 /* Elements */,
 				2A8AD0D52B1D142400002684 /* SignUpScreen.swift */,
 				2A8AD0D32B1D140B00002684 /* SignInScreen.swift */,
+				2AE1223F2B2C88A700E3012E /* ForgotPasswordScreen.swift */,
 				2A601EF12B1F0118006AB528 /* SignVM.swift */,
 				2A601EF72B1F18D7006AB528 /* UserDataBase */,
 				2A8AD0CF2B1D13D100002684 /* ProfileScreen.swift */,
+				2AE122432B2CA87F00E3012E /* ProfileEditScreen.swift */,
 				2A8AD0CB2B1D0FA100002684 /* HomeScreen.swift */,
 				2A8AD0CD2B1D10D700002684 /* GoogleService-Info.plist */,
 				2A8AD0882B1D09E100002684 /* Assets.xcassets */,
@@ -282,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AE122442B2CA87F00E3012E /* ProfileEditScreen.swift in Sources */,
 				2A8AD0DB2B1D207900002684 /* PasswordTextField.swift in Sources */,
 				2A601EF62B1F15EE006AB528 /* UserNameTextField.swift in Sources */,
 				2A8AD0D22B1D13EA00002684 /* SplashScreen.swift in Sources */,
@@ -291,6 +298,7 @@
 				2A8AD0D42B1D140B00002684 /* SignInScreen.swift in Sources */,
 				2A8AD0D92B1D1F6400002684 /* EmailTextField.swift in Sources */,
 				2A601EFB2B1F19E7006AB528 /* UserRepository.swift in Sources */,
+				2AE122402B2C88A700E3012E /* ForgotPasswordScreen.swift in Sources */,
 				2A8AD0852B1D09E000002684 /* HeadlineApp.swift in Sources */,
 				2A601EF42B1F0676006AB528 /* SignButton.swift in Sources */,
 				2A601EF22B1F0118006AB528 /* SignVM.swift in Sources */,

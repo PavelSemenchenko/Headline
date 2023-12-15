@@ -24,6 +24,7 @@ struct PasswordTextField: View {
         .background(backgroundColor)
             .autocapitalization(.words)
             .padding(EdgeInsets(top: 8, leading: 36, bottom: 8, trailing: 36))
+            .cornerRadius(16)
     }
 }
 /*

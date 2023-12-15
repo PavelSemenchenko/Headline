@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EmailTextField: View {
+    
     var valid: Bool
     var placeholder: String
     var text: Binding<String>
@@ -24,9 +25,10 @@ struct EmailTextField: View {
                 .stroke(backgroundColor, lineWidth: 1))
             .textFieldStyle(.roundedBorder)
             .padding(EdgeInsets(top: 8, leading: 36, bottom: 8, trailing: 36))
+            .cornerRadius(16)
     }
 }
-/*
+
  #Preview {
- EmailTextField(valid: true, placeholder: "enter text", text: $emailText)
- }*/
+     EmailTextField(valid: true, placeholder: "enter text", text: .constant("0001"))
+ }

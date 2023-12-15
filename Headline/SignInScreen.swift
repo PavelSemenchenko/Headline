@@ -37,6 +37,14 @@ struct SignInScreen: View {
             PasswordTextField(valid: signVM.isPasswordCorrect,
                               placeholder: "enter password",
                               text: $signVM.password)
+            HStack {
+                Spacer()
+                NavigationLink(destination: ForgotPasswordScreen()) {
+                    Text("Forgot Password?")
+                        .foregroundColor(.gray)
+                        .padding(10)
+                }
+            }
             HStack{
                 SignButton(text: "Sign in", enabled: signVM.canLogin, busy: signVM.busy) {
                     Task {

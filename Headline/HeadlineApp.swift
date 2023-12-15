@@ -31,7 +31,7 @@ struct HeadlineApp: App {
                     .environmentObject(userRepository)
             } else {
                 NavigationStack(path: $navigationVM.currentRoute) {
-                    SignInScreen()
+                    SplashScreen()
                     //TabBar()
                         .navigationDestination(for: NavigationRoute.self) { route in
                             switch route {
@@ -48,6 +48,8 @@ struct HeadlineApp: App {
                                     .environmentObject(userRepository)
                             case .tabbar:
                                 TabBar()
+                            case .profileEdit:
+                                ProfileEditScreen().environmentObject(userRepository)
                             }
                         }
                 }.navigationBarBackButtonHidden(true)

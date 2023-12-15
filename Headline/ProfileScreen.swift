@@ -59,7 +59,9 @@ struct ProfileScreen: View {
                 })
                 Spacer()
                 HStack {
-                    Button(action: {}, label: {
+                    Button(action: {
+                        navigationVM.pushScreen(route: .profileEdit)
+                    }, label: {
                         Text("edit profile")
                     })
                     Button(action: {}, label: {

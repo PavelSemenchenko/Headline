@@ -14,21 +14,21 @@ struct SplashScreen: View {
     var body: some View {
         ZStack {
             LinearGradient(colors: [.blue, .black], startPoint: .topTrailing, endPoint: .bottomLeading)
-            /*
-            Image("AppIcon")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 200, height: 200)
-                .opacity(logoOpacity)
-                        */
-            Text("Headline")
-                .font(.largeTitle)
-                //.font(.custom("NinaCTT", size: 24))
-                .fontWeight(.bold)
-                .foregroundColor(.white)
-                .multilineTextAlignment(.center)
-                .opacity(logoOpacity)
+            VStack {
+                Image("head")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 200, height: 200)
+                    .opacity(logoOpacity)
                 
+                Text("Headline")
+                    .font(.largeTitle)
+                //.font(.custom("NinaCTT", size: 24))
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .multilineTextAlignment(.center)
+                    .opacity(logoOpacity)
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         //.background(Color.red)
