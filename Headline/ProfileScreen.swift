@@ -14,6 +14,8 @@ struct ProfileScreen: View {
     @State var name: String?
     @State var nickName: String?
     
+    //@Binding var childData: String
+
     @State private var isGetSomething = false
     @State private var animatingCircle = false
     @State private var animatingButton = false
@@ -78,8 +80,19 @@ struct ProfileScreen: View {
                         Image(systemName: "globe")
                         Text("name 2")
                     }
+                    
                 }
-            Spacer()
+            HStack{
+                List {
+                    Section {
+                        Text("1")
+                    } header: {
+                        Text(Date().formatted(date: .abbreviated, time: .omitted))
+                    } footer: {
+                        Text("To do List")
+                    }
+                }
+            }
             
             HStack {
                 Text("Get something").bold()
@@ -125,6 +138,8 @@ struct ProfileScreen: View {
                     .scaleEffect(animatingButton ? 1.5 : 1.0)
             })
             
+            
+
         }//.edgesIgnoringSafeArea(.all)
     }
 }
@@ -132,3 +147,4 @@ struct ProfileScreen: View {
 #Preview {
     ProfileScreen().environmentObject(UserRepository())
 }
+
