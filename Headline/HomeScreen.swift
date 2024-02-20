@@ -14,18 +14,27 @@ struct HomeScreen: View {
     @State var value : Float = 0
     @State var isOn = false
     
+    enum Language : String, CaseIterable { // 1
+        case swift
+        case kotlin
+        case java
+        case javascript
+    }
+    
+    @State var selectedItem = Language.swift
+    
     var body: some View {
         ProgressView("Processing", value: value, total: 100)
-                    .progressViewStyle(LinearProgressViewStyle())
-                    .tint(.orange)
-                    .foregroundColor(.gray)
-                    .padding()
-                    .onAppear {
-                    // 2
-                        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-                            self.value += 12
-                        }
-                    }
+            .progressViewStyle(LinearProgressViewStyle())
+            .tint(.orange)
+            .foregroundColor(.gray)
+            .padding()
+            .onAppear {
+                // 2
+                Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+                    self.value += 12
+                }
+            }
         HStack{
             Toggle(isOn: $isOn, label: {
                 Label("Airplane Mode", systemImage: "airplane")
@@ -40,7 +49,14 @@ struct HomeScreen: View {
             })
             .toggleStyle(ButtonToggleStyle())
             .foregroundColor(.orange)
+            
         }.padding()
+        
+        Picker("Pick a language", selection: $selectedItem) { // 3
+                    ForEach(Language.allCases, id: \.self) { item in // 4
+                        Text(item.rawValue.capitalized) // 5
+                    }
+        }.pickerStyle(.wheel)
         
         ScrollView {
             Text("Hello, World!").padding(10)
